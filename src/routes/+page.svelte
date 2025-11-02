@@ -17,13 +17,9 @@
 			</div>
 		{/snippet}
 
-		{#snippet Content()}
-			<ContextMenu.Item onclick={open} Icon={Back}>
-				item 1
-			</ContextMenu.Item>
-			<div class="item">item 2</div>
-			<div class="item">item 3</div>
-		{/snippet}
+		<ContextMenu.Item onclick={open} Icon={Back}>item 1</ContextMenu.Item>
+		<ContextMenu.Item onclick={open} Icon={Back}>item 2</ContextMenu.Item>
+		<ContextMenu.Item onclick={open} Icon={Back}>item 3</ContextMenu.Item>
 		<!-- <div class="submenu">
 			<div class="item"></div>
 			<div class="item"></div>

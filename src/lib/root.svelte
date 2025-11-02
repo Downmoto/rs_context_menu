@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { ContextMenuProps } from './types.js';
 
-	let { open, Content, Zone }: ContextMenuProps = $props();
+	let { open, children, Zone }: ContextMenuProps = $props();
 
-	let menu_open: boolean = $state(true);
+	let menu_open: boolean = $state(false);
 	let menu_x: number = $state(0);
 	let menu_y: number = $state(0);
 
@@ -19,7 +19,7 @@
 	}
 </script>
 
-<svelte:window onclick={on_close}></svelte:window>
+<svelte:window onclick={on_close} />
 
 <div class="root" role="application" oncontextmenu={(e) => e.preventDefault()}>
 	<div class="zone" role="application" oncontextmenu={on_open}>
@@ -28,7 +28,7 @@
 
 	{#if menu_open}
 		<div class="menu" style="position: fixed; left: {menu_x}px; top: {menu_y}px;">
-			{@render Content()}
+			{@render children?.()}
 		</div>
 	{/if}
 </div>
@@ -37,7 +37,6 @@
 	.menu {
 		background: white;
 		border: 1px solid black;
-		border-radius: 8px;
 		padding: 4px;
 	}
 </style>
