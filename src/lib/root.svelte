@@ -1,16 +1,25 @@
 <script lang="ts">
-	import type { ContextMenuProps } from "./types.js";
+	import type { ContextMenuProps } from './types.js';
 
-	let { open, Content, Zone } : ContextMenuProps = $props()
+	let { open, Content, Zone }: ContextMenuProps = $props();
 
-	let menu_open: boolean = $state(false)
+	let menu_open: boolean = $state(true);
+	let menu_x: number = $state(0);
+	let menu_y: number = $state(0);
 
 	function on_open(e: MouseEvent) {
-		open?.(e)
-		console.log(e);
-		menu_open = !menu_open  // testing
+		open?.(e);
+		menu_x = e.clientX;
+		menu_y = e.clientY;
+		menu_open = true
+	}
+
+	function on_close(e: MouseEvent) {
+		menu_open = false
 	}
 </script>
+
+<svelte:window onclick={on_close}></svelte:window>
 
 <div class="root" role="application" oncontextmenu={(e) => e.preventDefault()}>
 	<div class="zone" role="application" oncontextmenu={on_open}>
@@ -18,10 +27,17 @@
 	</div>
 
 	{#if menu_open}
-		<div class="content">
+		<div class="menu" style="position: fixed; left: {menu_x}px; top: {menu_y}px;">
 			{@render Content()}
 		</div>
 	{/if}
 </div>
 
-
+<style>
+	.menu {
+		background: white;
+		border: 1px solid black;
+		border-radius: 8px;
+		padding: 4px;
+	}
+</style>

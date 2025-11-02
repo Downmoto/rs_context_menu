@@ -1,14 +1,16 @@
 <script lang="ts">
 	import * as ContextMenu from '$lib/index.js';
+	import Back from './back.svelte';
+
+	function open(e: MouseEvent) {
+		console.log(e);
+	}
 </script>
 
 <div class="centered">
 	<!-- ---------------------- -->
 
-
-
-
-	<ContextMenu.Root>
+	<ContextMenu.Root {open}>
 		{#snippet Zone()}
 			<div class="menu">
 				<h1>Zone</h1>
@@ -16,7 +18,9 @@
 		{/snippet}
 
 		{#snippet Content()}
-			<div class="item">item 1</div>
+			<ContextMenu.Item onclick={open} Icon={Back}>
+				item 1
+			</ContextMenu.Item>
 			<div class="item">item 2</div>
 			<div class="item">item 3</div>
 		{/snippet}
@@ -31,10 +35,6 @@
 			</div>
 		</div> -->
 	</ContextMenu.Root>
-	
-
-
-
 
 	<!-- ---------------------- -->
 </div>

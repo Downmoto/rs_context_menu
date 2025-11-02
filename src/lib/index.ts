@@ -1,2 +1,3 @@
 // Reexport your entry components here
-export { default as Root } from './root.svelte'
+export { default as Root } from './root.svelte';
+export { default as Item } from './item.svelte';
