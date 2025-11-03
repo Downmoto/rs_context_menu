@@ -17,9 +17,14 @@
 			</div>
 		{/snippet}
 
-		<ContextMenu.Item onclick={open} Icon={Back}>item 1</ContextMenu.Item>
-		<ContextMenu.Item onclick={open} Icon={Back}>item 2</ContextMenu.Item>
-		<ContextMenu.Item onclick={open} Icon={Back}>item 3</ContextMenu.Item>
+		<ContextMenu.Item onclick={open} ToggleIcon={Back}>item 1</ContextMenu.Item>
+		<ContextMenu.Item onclick={open}>item 2</ContextMenu.Item>
+
+		<ContextMenu.Group name='Actions' />
+		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
+		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
+		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
+		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
 		<!-- <div class="submenu">
 			<div class="item"></div>
 			<div class="item"></div>

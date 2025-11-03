@@ -8,7 +8,7 @@ export interface ContextMenuProps {
 
 export interface ContextMenuItemProps {
 	children: Snippet;
-	Icon?: Component;
+	ToggleIcon?: Component;
 	Kbd?: Snippet;
 	onclick: (e: MouseEvent) => void;
 }
