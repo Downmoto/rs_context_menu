@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ContextMenuItemProps } from './types.js';
 
-	let { children, ToggleIcon, Kbd, onclick }: ContextMenuItemProps = $props();
+	let { text, ToggleIcon, Kbd, onclick }: ContextMenuItemProps = $props();
 
 	function handleKeyDown(event: KeyboardEvent) {
 		if (event.key === 'Enter' || event.key === ' ') {
@@ -18,7 +18,7 @@
 		{/if}
 	</div>
 	<div class="text">
-		{@render children()}
+		{text}
 	</div>
 	<div class="kbd">
 		{@render Kbd?.()}

@@ -17,14 +17,34 @@
 			</div>
 		{/snippet}
 
-		<ContextMenu.Item onclick={open} ToggleIcon={Back}>item 1</ContextMenu.Item>
-		<ContextMenu.Item onclick={open}>item 2</ContextMenu.Item>
+		<ContextMenu.Item onclick={open} ToggleIcon={Back} text='item 1' />
+		<ContextMenu.Item onclick={open} text='item 2' />
+
+		<ContextMenu.Sub text="File">
+			<ContextMenu.Item onclick={open} text='New' />
+			<ContextMenu.Item onclick={open} text='Open' />
+			<ContextMenu.Item onclick={open} text='Save' />
+			<ContextMenu.Group />
+			<ContextMenu.Item onclick={open} text='Exit' />
+		</ContextMenu.Sub>
+
+		<ContextMenu.Sub text="Edit" ToggleIcon={Back}>
+			<ContextMenu.Item onclick={open} text='Cut' />
+			<ContextMenu.Item onclick={open} text='Copy' />
+			<ContextMenu.Item onclick={open} text='Paste' />
+			<ContextMenu.Group name='Advanced' />
+			<ContextMenu.Sub text="Find">
+				<ContextMenu.Item onclick={open} text='Find' />
+				<ContextMenu.Item onclick={open} text='Replace' />
+				<ContextMenu.Item onclick={open} text='Find in Files' />
+			</ContextMenu.Sub>
+		</ContextMenu.Sub>
 
 		<ContextMenu.Group name='Actions' />
-		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
-		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
-		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
-		<ContextMenu.Item onclick={open}>item 3</ContextMenu.Item>
+		<ContextMenu.Item onclick={open} text='item 3'/>
+		<ContextMenu.Item onclick={open} text='item 4'/>
+		<ContextMenu.Item onclick={open} text='item 5'/>
+		<ContextMenu.Item onclick={open} text='item 6'/>
 		<!-- <div class="submenu">
 			<div class="item"></div>
 			<div class="item"></div>

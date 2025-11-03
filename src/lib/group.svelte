@@ -15,6 +15,8 @@
 		align-items: center;
 		margin: 4px 0;
 		width: 100%;
+		user-select: none;
+    	cursor: default;
 	}
 
 	.separator-name {
